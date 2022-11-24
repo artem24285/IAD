@@ -62,3 +62,5 @@ class Ui_MainWindow(object):
     def box1(self,groubBox):
         pass
 
+def main():
+    pass
