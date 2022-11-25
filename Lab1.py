@@ -17,9 +17,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # self.lineEdit_2.setText(str(first_meaning))
         def display(self):
             self.lcdNumber.display(self.stack[-1])
+         #Класс Артема
         class methods_deductions():
             def __init__(self):
                 pass
+
+
+
+        #Класс Марата
         class methods_the_middle_of_the_squares():
             def __init__(self):
                 pass
