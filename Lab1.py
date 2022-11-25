@@ -21,6 +21,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.c=2+5
             self.display()
 
+        def disc(self):
+            pass
 
 if __name__=='__main__':
     app=QApplication(sys.argv)
