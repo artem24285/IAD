@@ -4,25 +4,24 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from Information import Ui_MainWindow
+
+
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
         self.setupUi(self)
-
-        # self.lineEdit.pressed.connect(self.label)
-        # self.lineEdit_2.pressed.connect(self.label_2)
-        # self.pushButton.pressed.connect(self.operations)
-        # self.show()
+        global first_meaning
+        global second_meaning
+        # self.pushButton.clicked.connect()
+        # self.lineEdit.setText(str(first_meaning))
+        # self.lineEdit_2.setText(str(first_meaning))
 
         def display(self):
             self.lcdNumber.display(self.stack[-1])
 
-        def operations(self):
-            self.c=2+5
-            self.display()
+        def methods_deductions(self):
 
-        def disc(self):
-            pass
+            self.display()
 
 if __name__=='__main__':
     app=QApplication(sys.argv)
