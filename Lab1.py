@@ -10,18 +10,19 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
         self.setupUi(self)
-        global first_meaning
-        global second_meaning
+        global being_xi
+        global N
         # self.pushButton.clicked.connect()
         # self.lineEdit.setText(str(first_meaning))
         # self.lineEdit_2.setText(str(first_meaning))
-
         def display(self):
             self.lcdNumber.display(self.stack[-1])
-
-        def methods_deductions(self):
-
-            self.display()
+        class methods_deductions():
+            def __init__(self):
+                pass
+        class methods_the_middle_of_the_squares():
+            def __init__(self):
+                pass
 
 if __name__=='__main__':
     app=QApplication(sys.argv)
