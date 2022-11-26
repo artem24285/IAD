@@ -1,15 +1,12 @@
-def methods(self, being_xi, N, massive):
-    self.being_xi = being_xi
-    self.N = N
-    self.massive = massive
+
+def methods(xi,N):
 
     g = 6.5
     massive_end = [N]
-    while N - 1:
-        massive_end = g * being_xi
-
-    print(massive_end)
-
+    for n in range(N):
+        massive_end=g*xi
+        xi=massive_end
+        print(massive_end)
 
 def test_1(self):
     pass
@@ -17,3 +14,12 @@ def test_1(self):
 
 def test_2(self):
     pass
+
+def main():
+    being_xi = float(input('Введите значение: '))
+    N = int(input('Введите значение: '))
+    methods(being_xi,N)
+
+
+if __name__=='__main__':
+    main()
