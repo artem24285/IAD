@@ -4,7 +4,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from Information import Ui_MainWindow
-
+import methods_deductions
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
@@ -12,22 +12,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         global being_xi
         global N
+        global massive
+        global end_xi
+        global g
         # self.pushButton.clicked.connect()
         # self.lineEdit.setText(str(first_meaning))
         # self.lineEdit_2.setText(str(first_meaning))
         def display(self):
             self.lcdNumber.display(self.stack[-1])
-         #Класс Артема
-        class methods_deductions():
-            def __init__(self):
-                pass
+
+         #Класс Artem
+        methods_deductions.methods(self,being_xi=being_xi,N=N,massive=massive)
 
 
+        #Класс Marat
 
-        #Класс Марата
-        class methods_the_middle_of_the_squares():
-            def __init__(self):
-                pass
+
 
 if __name__=='__main__':
     app=QApplication(sys.argv)
