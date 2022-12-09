@@ -1,38 +1,57 @@
 import time
 
 class Deductions:
-    def methods(self,xi, N):
 
-        g = 6.5
-        massive_end = []
-        for n in range(N):
-            xi_end = g * xi
-            massive_end.append(xi_end)
-            xi = massive_end[n]
-            print(massive_end[n])
-            time.sleep(0.5)
-        print('\nВесь массив:')
-        print(massive_end)
+    massive_end = []
 
-    def test_1(self):
-        deductions=Deductions()
-        xi_0 = 0.0015
-        N = 12
-        deductions.methods(xi_0, N)
+    def D(self,xi):
+        return xi-int(xi)
+    @classmethod
+    def get_massive(cls):
+        return Deductions.massive_end
 
-    def test_2(self):
+
+    def method(self, xi, N):
         deductions = Deductions()
-        xi_0 = 0.005
-        N = 12
-        deductions.methods(xi_0, N)
+        g = 6.5
+        for n in range(N):
+            xi_end = (g * xi)
+            Deductions.massive_end.append(xi_end)
+            xi = Deductions.massive_end[n]
+        #     time.sleep(0.45)
+        #     print('Итерация: ',n,', результат: ',Deductions.massive_end[n])
+        #     print(deductions.D(xi))
+        # print('\nВесь массив:')
+        # print( Deductions.massive_end)
+        return Deductions.massive_end
+
+
+    def test_1(self,N):
+        deductions=Deductions()
+        xi=0.00025
+        deductions.method(xi,N)
+        print('New massive')
+        testing_massive = []
+        test_massive=[]
+        testing_massive.append(Deductions.massive_end)
+        for xi_j in testing_massive:
+            for j in xi_j:
+                p=xi_j
+                print(p)
+
+
+
+
 
 def main():
+    N = int(input('Введите N: '))
+    xi=0.25
     deductions=Deductions()
-    print('Тестирование программы запущено')
+    print('\nТестирование программы запущено')
     print('\nПервый тест:')
-    deductions.test_1()
-    print('\nВторой тест:')
-    deductions.test_2()
+    deductions.test_1(N)
+
+
     print('\nТестированние программы завершено!')
 
 
