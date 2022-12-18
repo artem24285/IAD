@@ -16,16 +16,16 @@ class Methods_and_Test(QDialog):
 
         self.Methods_deductions.clicked.connect(self.methods_1)
         self.Methods_middle_squares.clicked.connect(lambda: self.methods_2(self.Methods_middle_squares.text()))
-        self.Test_1.clicked.connect( self.test_1)
+        self.Test_1.clicked.connect( self.uniformity)
         self.Test_2.clicked.connect(lambda: self.test_2(self.Test_2.text()))
-        self.Clear.clicked.connect(lambda: self.methods_2(self.Clear.text()))
+        self.Clear.clicked.connect(self.clear)
         self.Exit.clicked.connect(self.exit)
 
 
     @QtCore.pyqtSlot()
     def methods_1(self):
         deductions=methods_deductions.Deductions()
-        methods=deductions.method(0.025,50)
+        methods=deductions.methods(0.25,50)
         self.textEdit_data.setText(str(methods))
 
 
@@ -33,16 +33,20 @@ class Methods_and_Test(QDialog):
         self.textEdit_data_2.setText(text)
 
 
-    def test_1(self):
-        text = "Этот текст должен быть в окне приложение, а не консоли"
-        self.textEdit_data_3.setText(text)
+    def uniformity(self):
+        deductions=methods_deductions.Deductions()
+        test_1=deductions.uniformity(0.25,50)
+        self.textEdit_data_3.setText(str(test_1))
 
 
     def test_2(self, text):
         self.textEdit_data_4.setText(text)
 
     def clear(self):
-        pass
+        self.textEdit_data.setText("")
+        self.textEdit_data_2.setText("")
+        self.textEdit_data_3.setText("")
+        self.textEdit_data_4.setText("")
 
     def exit(self):
         exit()
