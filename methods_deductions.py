@@ -4,7 +4,8 @@ class Deductions:
 
     massive_end = []
     testing_massive = []
-    test_massive=[]
+    main_massive=[]
+    massive_check=[0.0016, 0.211,0.584,1.06,1.61,2.20,2.83,3.49,4.17,4.86,5.6,6.3,7.0,7.8,8.5,9.3,10.1,10.9,11.7,12.4]
 
     @classmethod
     def get_massive(cls):
@@ -17,34 +18,35 @@ class Deductions:
         deductions = Deductions()
         g = 6.5
         xi_l=xi
+        deductions.massive_end = []
 
         for n in range(N):
+
             xi_n=deductions.D(xi_l)*(g*xi)
             deductions.massive_end.append(xi_n)
             xi_l=deductions.massive_end[n]
             print('Итерация: ',n,', результат:',xi_n)
-
+            
         return deductions.massive_end
 
     def uniformity(self,xi,N):
         deductions=Deductions()
         xi_l = xi
         g = 6.5
-        B=0.9
+        deductions.main_massive=[]
+
         for j in range(N):
             xi_n = deductions.D(xi_l) * (g * xi)
             deductions.testing_massive.append(xi_n)
             xi_l = deductions.testing_massive[j]
             p=xi_n-xi
-            X=(B-(p*N))**2/(p*N)
-            deductions.test_massive.append(X)
+            X=(deductions.testing_massive[j]-(p*N))**2/(p*N)
+            deductions.main_massive.append(X)
 
-            print('Итерация: ', j, ', результат:', X)
+        sumMassive=sum(deductions.main_massive)
+        print('Значение Хи_квадрат:',sumMassive)
 
-        return  deductions.test_massive
-
-
-
+        return  sumMassive
 
 def main():
 
@@ -53,6 +55,7 @@ def main():
     deductions=Deductions()
     print('\nТестирование программы запущено')
     print('\nПервый тест:')
+    deductions.methods(xi, N)
     deductions.uniformity(xi,N)
     print('\nТестированние программы завершено!')
 
