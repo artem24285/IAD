@@ -1,4 +1,5 @@
 import time
+import functools
 
 class Deductions:
 
@@ -45,6 +46,10 @@ class Deductions:
 
         sumMassive=sum(deductions.main_massive)
         print('Значение Хи_квадрат:',sumMassive)
+        if functools.reduce(lambda x, y: x and y, map(lambda p, q: p == q, deductions.testing_massive, deductions.massive_check), True):
+            print("Тест на равномерность прошел успешно")
+        else:
+            print("Тест на равномерность не прошел успешно")
 
         return  sumMassive
 
@@ -54,8 +59,8 @@ def main():
     xi=0.25
     deductions=Deductions()
     print('\nТестирование программы запущено')
-    print('\nПервый тест:')
     deductions.methods(xi, N)
+    print('\nПервый тест:')
     deductions.uniformity(xi,N)
     print('\nТестированние программы завершено!')
 
